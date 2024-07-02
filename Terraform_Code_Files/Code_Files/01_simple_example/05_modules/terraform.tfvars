@@ -1,0 +1,6 @@
+rg_name = "AKSRG"
+rg_location = "EastUS"
+vnet_name = "AKSVNET01"
+subnet01_name = "Subnet01"
+acr_name = "nextopsacr11"
+aks_name = "nextopsaks11"

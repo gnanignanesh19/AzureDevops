@@ -1,0 +1,94 @@
+---
+#GENERATED FOR K8S 1.20
+apiVersion: batch/v1
+#GENERATED FOR K8S 1.20
+kind: Job
+#GENERATED FOR K8S 1.20
+metadata:
+#GENERATED FOR K8S 1.20
+  labels:
+#GENERATED FOR K8S 1.20
+    app.kubernetes.io/component: admission-webhook
+#GENERATED FOR K8S 1.20
+    app.kubernetes.io/instance: ingress-nginx
+#GENERATED FOR K8S 1.20
+    app.kubernetes.io/name: ingress-nginx
+#GENERATED FOR K8S 1.20
+    app.kubernetes.io/part-of: ingress-nginx
+#GENERATED FOR K8S 1.20
+    app.kubernetes.io/version: 1.2.1
+#GENERATED FOR K8S 1.20
+  name: ingress-nginx-admission-create
+#GENERATED FOR K8S 1.20
+  namespace: ingress-nginx
+#GENERATED FOR K8S 1.20
+spec:
+#GENERATED FOR K8S 1.20
+  template:
+#GENERATED FOR K8S 1.20
+    metadata:
+#GENERATED FOR K8S 1.20
+      labels:
+#GENERATED FOR K8S 1.20
+        app.kubernetes.io/component: admission-webhook
+#GENERATED FOR K8S 1.20
+        app.kubernetes.io/instance: ingress-nginx
+#GENERATED FOR K8S 1.20
+        app.kubernetes.io/name: ingress-nginx
+#GENERATED FOR K8S 1.20
+        app.kubernetes.io/part-of: ingress-nginx
+#GENERATED FOR K8S 1.20
+        app.kubernetes.io/version: 1.2.1
+#GENERATED FOR K8S 1.20
+      name: ingress-nginx-admission-create
+#GENERATED FOR K8S 1.20
+    spec:
+#GENERATED FOR K8S 1.20
+      containers:
+#GENERATED FOR K8S 1.20
+      - args:
+#GENERATED FOR K8S 1.20
+        - create
+#GENERATED FOR K8S 1.20
+        - --host=ingress-nginx-controller-admission,ingress-nginx-controller-admission.$(POD_NAMESPACE).svc
+#GENERATED FOR K8S 1.20
+        - --namespace=$(POD_NAMESPACE)
+#GENERATED FOR K8S 1.20
+        - --secret-name=ingress-nginx-admission
+#GENERATED FOR K8S 1.20
+        env:
+#GENERATED FOR K8S 1.20
+        - name: POD_NAMESPACE
+#GENERATED FOR K8S 1.20
+          valueFrom:
+#GENERATED FOR K8S 1.20
+            fieldRef:
+#GENERATED FOR K8S 1.20
+              fieldPath: metadata.namespace
+#GENERATED FOR K8S 1.20
+        image: k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1@sha256:64d8c73dca984af206adf9d6d7e46aa550362b1d7a01f3a0a91b20cc67868660
+#GENERATED FOR K8S 1.20
+        imagePullPolicy: IfNotPresent
+#GENERATED FOR K8S 1.20
+        name: create
+#GENERATED FOR K8S 1.20
+        securityContext:
+#GENERATED FOR K8S 1.20
+          allowPrivilegeEscalation: false
+#GENERATED FOR K8S 1.20
+      nodeSelector:
+#GENERATED FOR K8S 1.20
+        kubernetes.io/os: linux
+#GENERATED FOR K8S 1.20
+      restartPolicy: OnFailure
+#GENERATED FOR K8S 1.20
+      securityContext:
+#GENERATED FOR K8S 1.20
+        fsGroup: 2000
+#GENERATED FOR K8S 1.20
+        runAsNonRoot: true
+#GENERATED FOR K8S 1.20
+        runAsUser: 2000
+#GENERATED FOR K8S 1.20
+      serviceAccountName: ingress-nginx-admission
+#GENERATED FOR K8S 1.20

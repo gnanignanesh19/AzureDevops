@@ -1,0 +1,21 @@
+Equality == and != 
+resource "azurerm_virtual_network" "vnet1" {
+  name                = var.env != "prod" ? "dev-vnet" : "prod-vnet"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  location            = "${azurerm_resource_group.rg.location}"
+  address_space       = var.env != "prod" ? ["10.90.0.0/16"] : ["10.0.0.0/16"]
+}
+
+Logical && and ||
+resource "azurerm_linux_virtual_machine" "vm1"{
+    name = var.env != "prod" ? "dev-vm" : "prod-vm"
+    size = var.env == "prod" && var.location == "eastus" ? "Standard_DV2" : "Standard_B1s"
+}
+
+Greterthan and less than
+resource "azurerm_virtual_network" "vnet1" {
+  name                = var.env != "prod" ? "dev-vnet" : "prod-vnet"
+  resource_group_name = "${azurerm_resource_group.rg.name}"
+  location            = var.latency > 100 ? "eastus" : "southindia"
+  address_space       = var.env != "prod" ? ["10.90.0.0/16"] : ["10.0.0.0/16"]
+}

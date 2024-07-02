@@ -1,0 +1,5 @@
+rg_name = "NextOpsRG02"
+rg_location = "West Europe"
+vnet_name = "NextOpsVNET15"
+subnet01_name = "subnet01"
+subnet02_name = "subnet02"

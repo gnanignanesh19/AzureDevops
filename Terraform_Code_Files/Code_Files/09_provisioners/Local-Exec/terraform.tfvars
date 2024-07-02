@@ -1,0 +1,5 @@
+rgname = "NextOpsRGT11"
+location = "eastus"
+prefix = "NextOps"
+vnet_cidr_prefix = "10.11.0.0/16"
+subnet1_cidr_prefix = "10.11.1.0/24"

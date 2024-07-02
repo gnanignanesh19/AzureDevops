@@ -1,0 +1,12 @@
+1. Provider Definition 
+2. Authentication Information (For service principle)
+3. Resource - Resource Group Block Definition
+4. Resource - Virtual Network Block Definition
+5. Resource - Subnet01 Block Definition - We connected the subnet to the vnet we created in the earlier step.
+6. Resource - Subnet02 Block Definition - We connected the subnet to the vnet we created in the earlier step.
+7. Resource - PublicIP Block Definition 
+8. Resource - Network Interface Card Definition - We connected the NIC to existing subnet that we created in the earlier step.
+9. Resource - Network Security Group Definition
+10. Resource - Network Security Group Rule Definition
+11. Resource - Network Security Group Rule Association Definition
+12. Resource - Windows VM Definition - We connected the vm with existing NIC that we created in the earlier step. 
